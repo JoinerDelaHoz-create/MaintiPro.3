@@ -1,4 +1,5 @@
-[README.md](https://github.com/user-attachments/files/32481351/README.md)
+[README.md](https://github.com/user-attachments/files/32482889/README.md)
+
 # 🏭 CMMS Industrial v2.0 - Sistema de Gestión de Mantenimiento & Telemetría IoT
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
@@ -25,16 +26,21 @@ Sistema integral de gestión de mantenimiento asistido por computadora (**CMMS**
 * **Autoasignación en Tiempo Real:** Pestaña *"Disponibles para Todos ✋"* con botón interactivo para autoasignarse órdenes con un toque.
 * **Informe Guiado de Cierre:** Al finalizar el trabajo, el técnico registra qué se hizo en la máquina y qué repuestos/materiales se utilizaron.
 
-### 3. 🔐 Seguridad y Control de Acceso (RBAC)
+### 3. 🔐 Seguridad, Control de Acceso (RBAC) & Cambio de Clave
 * Autenticación con contraseñas seguras cifradas mediante **PBKDF2-HMAC-SHA256**.
 * Tokens de sesión firmados sin dependencias externas pesadas.
+* **🔒 Cambio de Contraseña Integrado:** Los usuarios pueden actualizar su contraseña en cualquier momento con validación en tiempo real de seguridad industrial (mínimo 8 caracteres, mayúsculas, minúsculas, números/símbolos y medidor dinámico de fortaleza).
 * Cuentas de demostración preconfiguradas:
   * **Administrador:** `admin` / `admin123`
   * **Técnico Mecánico:** `carlos` / `1234` (Ing. Carlos Mendoza)
   * **Técnico Eléctrico:** `laura` / `1234` (Tec. Laura Ramos)
   * **Técnico Predictivo:** `andres` / `1234` (Tec. Andrés Silva)
 
-### 4. ☁️ Preparado para la Nube (Vercel & GitHub)
+### 4. 🏭 Datos de Demostración Industriales
+* **8 Equipos de Planta:** Compresor Rotativo GA-75, Bomba KSB-80, Motor Siemens 75HP, Cinta Mod-B, Caldera 500BHP, Extrusora Doble Husillo 120mm, Torre de Enfriamiento 350TR y Generador Cummins 450kVA.
+* **13 Órdenes de Trabajo:** Cobertura de las 3 categorías (`PREVENTIVE`, `CORRECTIVE`, `PREDICTIVE`) para cada técnico, historial de órdenes cerradas con informe técnico y repuestos usados, más 4 órdenes disponibles en *"Disponibles para Todos ✋"*.
+
+### 5. ☁️ Preparado para la Nube (Vercel & GitHub)
 * Compatible con **Vercel Serverless Python** (`@vercel/python` y `vercel.json`).
 * Base de datos adaptable para entornos de solo lectura en la nube (`/tmp/cmms.db`).
 * **Cero dependencias obligatorias:** Funciona al 100% con la biblioteca estándar de Python.
@@ -106,7 +112,7 @@ Para correr toda la suite de pruebas unitarias y de integración:
 ```bash
 python -m unittest discover tests
 ```
-*18 pruebas cubriendo autenticación, hashing seguro, filtrado estricto por roles, KPIs y telemetría IoT.*
+*20 pruebas cubriendo autenticación, cambio de contraseña segura, filtrado estricto por roles, KPIs y telemetría IoT.*
 
 ---
 
